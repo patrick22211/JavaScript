@@ -48,16 +48,53 @@
             }
             */
 
-            const result = false ? 'truthy' : 'falsy';
+            // const result = false ? 'truthy' : 'falsy';
+            // console.log(result);
+
+            // false && console.log('hello');
+
+            // const message = 5 && 'hello';
+            // console.log(message);
+
+            // const currency = 'EUR' || 'USD';
+            // console.log(currency);
+
+            // const hour = 7;
+            // const name = 'Patrick'
+
+            // if (hour > 5 && hour <= 12) {
+            //     console.log(`Good Morning! ${name}`)
+            // } else if (hour > 13 && hour <= 17){
+            //     console.log('Good afternoon!');
+            // } else if (hour <= 23){
+            //     console.log('Good evening')
+            // }
+
+            // const age = 66;
+            // const isHoliday = false;
+
+            // if ( (age < 7 || age > 64) && !isHoliday){
+            //     console.log('Discount')
+            // } else {
+            //     console.log('No Discount')
+            // }
+
+            const randNum = Math.random();
+            console.log(randNum);
+            const guess = 'Heads'
+
+            
+
+            if (randNum < 0.5){
+                result = 'Heads'
+                
+            }else {
+                result = 'Tails'
+            }
+
             console.log(result);
-
-            false && console.log('hello');
-
-            const message = 5 && 'hello';
-            console.log(message);
-
-            const currency = 'EUR' || 'USD';
-            console.log(currency);
+            console.log(guess === result ? 'You win' : 'You lose');
+            
 
          </script>
     </body>

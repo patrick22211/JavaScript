@@ -14,13 +14,23 @@
         ">Add to Cart</button>
 
         <button onclick="
+        if (cartQuantity >= 10){
+            console.log('The cart is full')
+            cartQuantity = 10;
+        } else {
             cartQuantity += 2;
             console.log(`Cart quantity: ${cartQuantity}`)
+        }
         ">+2</button>
 
         <button onclick="
+        if (cartQuantity >= 10){
+            cartQuantity = 10;
+            console.log('The cart is full')
+        } else {
             cartQuantity += 3;
             console.log(`Cart quantity: ${cartQuantity}`)
+        }
         ">+3</button>
 
         <button onclick="
@@ -50,8 +60,12 @@
         ">-2</button>
 
         <button onclick="
+        if (cartQuantity < 1){
+            console.log('Not enough items in the cart')
+        } else {
         cartQuantity -= 3;
         console.log(cartQuantity);
+        }
         ">-3</button>
 
 
