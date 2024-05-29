@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+        
+        <p>Rock Paper Scissors</p>
+
+        <p>
+            <button onclick="
+                computerMove();
+                play('Rock', 'Paper', 'Scissors')
+                ">Rock</button>
+            
+            <button onclick="
+                computerMove();
+                play('Paper', 'Scissors', 'Rock')
+            ">Paper</button>
+
+            <button onclick="
+                computerMove();
+                play('Scissors', 'Rock', 'Paper')
+            ">Scissors</button>
+
+            <button onclick="
+                score.lose = 0;
+                score.win = 0;
+                score.tie = 0;
+                localStorage.removeItem('score')
+            ">Reset Score</button>
+        </p>
+
+        <script>
+            
+            /*
+            let score = JSON.parse(localStorage.getItem('score')) || {
+                win: 0,
+                lose: 0,
+                tie: 0
+            };
+
+            let computer = '';
+
+            function computerMove(){
+                randNum = Math.random();
+                if(randNum < 1 / 3){
+                    computer = 'Rock';
+                } else if(randNum < 2 / 3){
+                    computer = 'Paper';
+                } else {
+                    computer = 'Scissors';
+                }
+
+                console.log(computer);
+            }
+
+            function play(rock, paper, scissors){
+                let result = '';
+
+                if (computer === rock){
+                    result = 'Tie'
+                } else if (computer === paper){
+                    result = 'Lose'
+                } else if (computer === scissors){
+                    result = 'Win'
+                }
+
+                
+
+                if (result == 'Win'){
+                    score.win ++
+                } else if (result == 'Lose'){
+                    score.lose ++
+                } else if (result == 'Tie'){
+                    score.tie ++
+                }
+
+                localStorage.setItem('score', JSON.stringify(score));
+
+                alert(`You picked ${rock}. Computer picked ${computer}. ${result}
+                Win: ${score.win} Lose: ${score.lose} Tie: ${score.tie}
+                `)
+            }
+       */
+      
+       console.log('hello'.length)
+       console.log('hello'.toUpperCase());
+
+       const object1 = {
+        message: 'hello'
+       };
+       const object2 = object1;
+
+       object1.message = 'Good job!';
+       console.log(object1);
+       console.log(object2);
+
+       const object3 = {
+        message: 'Good job!'
+       };
+
+       console.log(object3 === object1);
+
+       const object4 = {
+        message: 'Good job!',
+        price: 799
+       };
+       // const message = object4.message;
+       const { message, price } = object4;
+       console.log(message);
+       console.log(price);
+
+       const object5 = {
+        //message:  message
+        message,
+        // method: function function1(){
+           // console.log('method');
+        // }
+        method() {
+            console.log('method')
+        }
+       }
+       console.log(object5);
+       object5.method();
+        </script>
+    </body>
+</html>

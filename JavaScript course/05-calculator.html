@@ -8,85 +8,72 @@
         <p>Calculator</p>
         <p>
         <button onclick="
-            calculation += '1';
-            console.log(calculation);
+            calculate('1')
         ">1</button>
         
         <button onclick="
-            calculation += '2';
-            console.log(calculation);
+            calculate('2')
         ">2</button>
 
         <button onclick="
-            calculation += '3';
-            console.log(calculation);
+            calculate('3')
         ">3</button>
         
         <button onclick="
-            calculation += ' + ';
-            console.log(calculation);
+            calculate(' + ')
         ">+</button>
         </p>
 
         <p>
         <button onclick="
-            calculation += '4';
-            console.log(calculation);
+            calculate('4')
         ">4</button>
 
         <button onclick="
-            calculation += '5';
-            console.log(calculation);
+            calculate('5')
         ">5</button>
 
         <button onclick="
-            calculation += '6';
-            console.log(calculation);
+            calculate('6')
         ">6</button>
 
         <button onclick="
-            calculation += ' - ';
-            console.log(calculation);
+            calculate(' - ')
         ">-</button>
        
         </p>
 
         <p>
         <button onclick="
-            calculation += '7';
-            console.log(calculation);
+            calculate('7')
         ">7</button>
 
         <button onclick="
-            calculation += '8';
-            console.log(calculation);
+            calculate('8')
         ">8</button>
 
         <button onclick="
-            calculation += '9';
-            console.log(calculation);
+            calculate('9')
         ">9</button>
 
         <button onclick="
-            calculation += ' * ';
-            console.log(calculation);
+            calculate(' * ')
         ">*</button>
         </p>
 
         <p>
         <button onclick="
-            calculation += '0';
-            console.log(calculation);
+            calculate('0')
         ">0</button>
 
         <button onclick="
-            calculation += '.';
-            console.log(calculation);
+            calculate('-')
         ">.</button>
 
         <button onclick="
             calculation = eval(calculation);
             console.log(calculation);
+            localStorage.setItem('calculation', calculation)
         ">=</button>
 
         <button onclick="
@@ -98,10 +85,17 @@
         <button onclick="
             calculation = '';
             console.log('Cleared.')
+
+            localStorage.setItem('calculation', calculation);
         ">clear</button>
     </body>
 
     <script>
-        let calculation = '';
+        let calculation = localStorage.getItem('calculation') || '';
+        function calculate(num){
+            calculation += num
+            console.log(calculation);
+            localStorage.setItem('calculation', calculation)
+        }
     </script>
 </html>
