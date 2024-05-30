@@ -1,88 +1,90 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Cart Quantity</title>
-    </head>
-    <body>
-        <button onclick="
-            console.log(`Cart quantity: ${cartQuantity}`)
-            ">Show Quantity</button>
+  <head>
+    <title>Cart Quantity</title>
+  </head>
+  <body>
+    <button onclick="
+      console.log(`Cart quantity: ${cartQuantity}`);
+    ">Show Quantity</button>
 
-        <button onclick="
-            cartQuantityUpdate(1);
-        ">Add to Cart</button>
+    <button onclick="
+      updateCartQuantity(1);
+    ">Add to Cart</button>
 
-        <button onclick="
-            cartQuantityUpdate(2);
-        ">+2</button>
+    <button onclick="
+      updateCartQuantity(2);
+    ">+2</button>
 
-        <button onclick="
-            cartQuantityUpdate(3);
-        ">+3</button>
+    <button onclick="
+      updateCartQuantity(3);
+    ">+3</button>
 
-        <button onclick="
-            cartQuantity = 0;
-            console.log('Cart was reset.')
-            console.log(`Cart quantity: ${cartQuantity}`)
-        ">Reset Cart</button>
+    <button onclick="
+      updateCartQuantity(4);
+    ">+4</button>
 
-        <button onclick="
-        cartQuantity += 4;
-        console.log(cartQuantity);
-        ">+4</button>
+    <button onclick="
+      updateCartQuantity(5);
+    ">+5</button>
 
-        <button onclick="
-        cartQuantity += 5;
-        console.log(cartQuantity);
-        ">+5</button>
+    <button onclick="
+      updateCartQuantity(-1);
+    ">Remove from cart</button>
 
-        <button onclick="
-        cartQuantity --;
-        console.log(cartQuantity);
-        ">Remove from cart</button>
-        
-        <button onclick="
-        cartQuantity -= 2;
-        console.log(cartQuantity);
-        ">-2</button>
+    <button onclick="
+      updateCartQuantity(-2);
+    ">-2</button>
 
-        <button onclick="
-        if (cartQuantity < 1){
-            console.log('Not enough items in the cart')
-        } else {
-        cartQuantity -= 3;
-        console.log(cartQuantity);
+    <button onclick="
+      updateCartQuantity(-3);
+    ">-3</button>
+
+    <button onclick="
+      cartQuantity = 0;
+      console.log('Cart was reset.');
+      console.log(`Cart quantity: ${cartQuantity}`);
+    ">Reset Cart</button>
+
+    <p class="js-cart-quantity"></p>
+
+
+    <script>
+      let cartQuantity = 0;
+      let cartQuantity2 = document.querySelector('.js-cart-quantity')
+
+      function updateCartQuantity(change) {
+        if (cartQuantity + change > 10) {
+          cartQuantity2.innerHTML = 'The cart is full';
+          return;
         }
-        ">-3</button>
 
+        if (cartQuantity + change < 0) {
+          cartQuantity2.innerHTML = 'Not enough items in the cart';
+          return;
+        }
 
-        <script>
-           let cartQuantity = 0;
+        cartQuantity += change;
+        cartQuantity2.innerHTML = `Cart quantity: ${cartQuantity}`;
+      }
 
-           function cartQuantityUpdate(change){
-            if (cartQuantity + change > 10) {
-                alert('Cart is Full')
-            } else {
-                alert(cartQuantity += change);
-            }
-           }
            
-           let name = 'Patrick';
-           console.log(name);
+        //    let name = 'Patrick';
+        //    console.log(name);
 
-           let coffee = 5;
-           let bagels = 3;
-           let soup = 9;
+        //    let coffee = 5;
+        //    let bagels = 3;
+        //    let soup = 9;
 
-           let cost = (coffee * 2) + bagels + soup;
+        //    let cost = (coffee * 2) + bagels + soup;
 
-           console.log(`Cost of food: $${cost}`);
+        //    console.log(`Cost of food: $${cost}`);
 
-           let tax = cost * 0.1;
-           console.log(`Tax(10%): $${tax}`);
+        //    let tax = cost * 0.1;
+        //    console.log(`Tax(10%): $${tax}`);
 
-           let totalCost = cost + tax;
-           console.log(`Total cost: $${totalCost}`)
+        //    let totalCost = cost + tax;
+        //    console.log(`Total cost: $${totalCost}`)
          </script>
     </body>
 </html>

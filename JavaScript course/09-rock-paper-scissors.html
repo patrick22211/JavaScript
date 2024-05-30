@@ -23,15 +23,16 @@
                 play('Scissors', 'Rock', 'Paper')
             ">Scissors</button>
 
-            <p class=".result"></p>
+            <p class="result"></p>
+            <p class="js-score"></p>
             <p class="pick"></p>
-            <p></p>
 
             <button onclick="
                 score.lose = 0;
                 score.win = 0;
                 score.tie = 0;
                 localStorage.removeItem('score')
+                updateScoreElement();
             ">Reset Score</button>
         </p>
 
@@ -42,6 +43,8 @@
                 lose: 0,
                 tie: 0
             };
+
+            updateScoreElement();
 
             let computer = '';
 
@@ -69,25 +72,29 @@
                     result = 'Win'
                 }
 
-                const resultText = document.querySelector('.result').innerHTML;
+                
 
                 if (result == 'Win'){
                     score.win ++;
-                    resultText = 'You Win.'
                 } else if (result == 'Lose'){
                     score.lose ++;
-                    resultText = 'You lose.'
                 } else if (result == 'Tie'){
                     score.tie ++;
-                    resultText = 'Tie.'
                 }
 
                 localStorage.setItem('score', JSON.stringify(score));
-                
 
-                alert(`You picked ${rock}. Computer picked ${computer}. ${result}
-                Win: ${score.win} Lose: ${score.lose} Tie: ${score.tie}
-                `)
+                
+                updateScoreElement();
+                document.querySelector('.result').innerHTML = result;
+                document.querySelector('.pick').innerHTML = `You ${rock} - ${computer} Computer`;
+
+            }
+
+            function updateScoreElement(){
+                document.querySelector('.js-score')
+                .innerHTML = `Win: ${score.win} Lose: ${score.lose} Tie: ${score.tie}
+                `;
             }
         </script>
     </body>
